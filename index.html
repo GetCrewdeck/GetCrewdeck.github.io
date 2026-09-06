@@ -6,6 +6,13 @@
     <meta name="description" content="Crewdeck brings every AI coding session, model, and project into one calm desktop workspace." />
     <meta name="theme-color" content="#f3f1ec" />
     <title>Crewdeck — AI work, in one place.</title>
+    <script>
+      (() => {
+        const saved = localStorage.getItem('crewdeck-theme');
+        const theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -22,6 +29,10 @@
         <a href="#product">Product</a>
         <a href="#principles">Principles</a>
       </nav>
+      <div class="theme-toggle" role="group" aria-label="Color theme">
+        <button type="button" data-theme-choice="light" aria-label="Use light mode">☀</button>
+        <button type="button" data-theme-choice="dark" aria-label="Use dark mode">◐</button>
+      </div>
       <a class="nav-cta" href="#download">Download <span>↘</span></a>
     </header>
 
@@ -40,46 +51,26 @@
         <div class="hero-meta"><span>Free during beta</span><span>Apple silicon & Intel</span><span>Windows + Linux soon</span></div>
 
         <div class="product-frame" id="product">
-          <div class="window-bar">
-            <div class="traffic"><i></i><i></i><i></i></div>
-            <span>Crewdeck / Today</span>
-            <div class="system"><span>4 agents</span><span>72%</span><span>09:41</span></div>
-          </div>
-          <div class="app-shell">
-            <aside>
-              <div class="rail-logo">C</div>
-              <button class="rail-item active" aria-label="Sessions">✦</button>
-              <button class="rail-item" aria-label="Projects">□</button>
-              <button class="rail-item" aria-label="Ideas">◇</button>
-              <div class="rail-spacer"></div>
-              <button class="rail-item" aria-label="Settings">◌</button>
-            </aside>
-            <div class="workspace">
-              <div class="workspace-head">
-                <div><small>WORKSPACE</small><h2>Good morning, Alex.</h2></div>
-                <button>+ New session</button>
-              </div>
-              <div class="filters"><button class="selected">In focus <b>3</b></button><button>Waiting <b>1</b></button><button>All sessions <b>12</b></button><span></span><button>Sort: Priority⌄</button></div>
-              <div class="sessions">
-                <article class="session featured">
-                  <div class="model-icon coral">C</div>
-                  <div class="session-copy"><small>CONTEXT WEBSITE</small><h3>Refining the product launch page</h3><p>Implementing the new type scale and responsive layout.</p></div>
-                  <div class="tag working"><i></i> Working</div><div class="model">Codex 5.3</div><button class="open">↗</button>
-                </article>
-                <article class="session">
-                  <div class="model-icon violet">A</div>
-                  <div class="session-copy"><small>DESKTOP APP</small><h3>Session handoff architecture</h3><p>Ready for review — three files changed.</p></div>
-                  <div class="tag ready"><i></i> Ready</div><div class="model">Claude 4.6</div><button class="open">↗</button>
-                </article>
-                <article class="session muted">
-                  <div class="model-icon blue">G</div>
-                  <div class="session-copy"><small>IDEA HOPPER</small><h3>Research local model support</h3><p>Waiting for your input on hardware targets.</p></div>
-                  <div class="tag waiting"><i></i> Waiting</div><div class="model">Gemini 3.1</div><button class="open">↗</button>
-                </article>
-              </div>
-              <div class="command"><span>⌘</span><p>Ask Crewdeck to start, sort, or continue anything…</p><kbd>⌘ K</kbd></div>
+          <div class="app-status"><div class="status-left"><div class="traffic"><i></i><i></i><i></i></div><strong>09:41</strong></div><div class="activity-island"><i></i><b>Crewdeck</b><span>Building the launch experience…</span></div><div class="system"><span class="usage-ring"></span><span>72%</span><span>⌁</span><span>⌁</span><span>▰</span></div></div>
+          <div class="app-window">
+            <div class="app-nav"><button>‹ <span>Workspaces</span></button><strong>Crewdeck</strong><div><button class="play">▶</button><button class="stop">■ &nbsp;Stop</button><button class="model-pill">Codex</button></div></div>
+            <div class="agent-terminal">
+              <p><span class="prompt-dot">●</span> I’ve mapped the current interface and its responsive states. The workspace stays focused while every tool remains close at hand.</p>
+              <p class="terminal-muted">✳ Worked for 28s · done 09:39</p>
+              <p class="user-message">› make the workspace feel calm, native, and fast</p>
+              <p><span class="prompt-dot">●</span> Understood — updating the shared components while preserving the interaction model.</p>
+              <p>Three areas are ready to ship:</p><p class="terminal-muted">Ran 4 checks</p>
+              <p><span class="prompt-dot">●</span> Unified navigation, agent controls, and project context into one continuous workspace.</p>
+              <p class="task-line"><span>●</span> Polish responsive layout and prepare the release</p>
+              <p class="code-line">└─ src/components/workspace.tsx<br />&nbsp;&nbsp;src/styles/app.css<br />&nbsp;&nbsp;tests/workspace.spec.ts</p>
+              <p class="thinking">· Percolating… <span>(42s · ↓ 2.4k tokens)</span></p>
+              <div class="terminal-input">› <i></i></div>
+              <div class="terminal-context"><span>crewdeck</span><b>⌁ launch/website</b><span>Codex</span><div><i></i><em>41%</em></div><strong>/rc</strong></div>
+              <div class="auto-mode">▶▶ auto mode on <span>(shift+tab to cycle) · ← for agents</span></div>
             </div>
+            <div class="app-tabs"><button class="active"><b>☀</b><span>Agent</span></button><button><b>⌘</b><span>Changes</span></button><button><b>▣</b><span>Terminal</span></button><button><b>☷</b><span>Checks</span></button><button><b>◎</b><span>Browser</span></button></div>
           </div>
+          <div class="app-dock"><button>☀</button><button>◎</button><button>♧</button><button>☼</button></div>
         </div>
       </section>
 
