@@ -1,5 +1,15 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const appClock = document.getElementById('app-clock');
+function updateAppClock() {
+  appClock.textContent = new Intl.DateTimeFormat(undefined, {
+    hour: 'numeric',
+    minute: '2-digit',
+  }).format(new Date());
+}
+updateAppClock();
+setInterval(updateAppClock, 30_000);
+
 const themeMedia = window.matchMedia('(prefers-color-scheme: dark)');
 const themeButtons = document.querySelectorAll('[data-theme-choice]');
 
@@ -23,6 +33,21 @@ themeButtons.forEach((button) => {
 
 themeMedia.addEventListener('change', (event) => {
   if (!localStorage.getItem('crewdeck-theme')) applyTheme(event.matches ? 'dark' : 'light');
+});
+
+const appSectionButtons = document.querySelectorAll('[data-app-section]');
+const appViews = document.querySelectorAll('[data-app-view]');
+
+appSectionButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const section = button.dataset.appSection;
+    appViews.forEach((view) => { view.hidden = view.dataset.appView !== section; });
+    appSectionButtons.forEach((item) => {
+      const selected = item.dataset.appSection === section;
+      item.classList.toggle('active', selected);
+      item.setAttribute('aria-pressed', String(selected));
+    });
+  });
 });
 
 const layers = document.querySelector('.layers');

@@ -6,6 +6,7 @@
     <meta name="description" content="Crewdeck brings every AI coding session, model, and project into one calm desktop workspace." />
     <meta name="theme-color" content="#f3f1ec" />
     <title>Crewdeck — AI work, in one place.</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <script>
       (() => {
         const saved = localStorage.getItem('crewdeck-theme');
@@ -51,26 +52,23 @@
         <div class="hero-meta"><span>Free during beta</span><span>Apple silicon & Intel</span><span>Windows + Linux soon</span></div>
 
         <div class="product-frame" id="product">
-          <div class="app-status"><div class="status-left"><div class="traffic"><i></i><i></i><i></i></div><strong>09:41</strong></div><div class="activity-island"><i></i><b>Crewdeck</b><span>Building the launch experience…</span></div><div class="system"><span class="usage-ring"></span><span>72%</span><span>⌁</span><span>⌁</span><span>▰</span></div></div>
+          <div class="app-status"><div class="status-left"><div class="traffic"><i></i><i></i><i></i></div><strong id="app-clock">09:41</strong></div><div class="activity-island"><i></i><b>Crewdeck</b><span>Building the launch experience…</span></div><div class="system"><span class="usage-ring"></span><span>72%</span><span>⌁</span><span>⌁</span><span>▰</span></div></div>
           <div class="app-window">
             <div class="app-nav"><button>‹ <span>Workspaces</span></button><strong>Crewdeck</strong><div><button class="play">▶</button><button class="stop">■ &nbsp;Stop</button><button class="model-pill">Codex</button></div></div>
             <div class="agent-terminal">
-              <p><span class="prompt-dot">●</span> I’ve mapped the current interface and its responsive states. The workspace stays focused while every tool remains close at hand.</p>
-              <p class="terminal-muted">✳ Worked for 28s · done 09:39</p>
-              <p class="user-message">› make the workspace feel calm, native, and fast</p>
-              <p><span class="prompt-dot">●</span> Understood — updating the shared components while preserving the interaction model.</p>
-              <p>Three areas are ready to ship:</p><p class="terminal-muted">Ran 4 checks</p>
-              <p><span class="prompt-dot">●</span> Unified navigation, agent controls, and project context into one continuous workspace.</p>
-              <p class="task-line"><span>●</span> Polish responsive layout and prepare the release</p>
-              <p class="code-line">└─ src/components/workspace.tsx<br />&nbsp;&nbsp;src/styles/app.css<br />&nbsp;&nbsp;tests/workspace.spec.ts</p>
-              <p class="thinking">· Percolating… <span>(42s · ↓ 2.4k tokens)</span></p>
-              <div class="terminal-input">› <i></i></div>
-              <div class="terminal-context"><span>crewdeck</span><b>⌁ launch/website</b><span>Codex</span><div><i></i><em>41%</em></div><strong>/rc</strong></div>
-              <div class="auto-mode">▶▶ auto mode on <span>(shift+tab to cycle) · ← for agents</span></div>
+              <section class="app-view" data-app-view="agent">
+                <p><span class="prompt-dot">●</span> I’ve mapped the current interface and its responsive states. The workspace stays focused while every tool remains close at hand.</p><p class="terminal-muted">✳ Worked for 28s · done 09:39</p><p class="user-message">› make the workspace feel calm, native, and fast</p><p><span class="prompt-dot">●</span> Understood — updating the shared components while preserving the interaction model.</p><p>Three areas are ready to ship:</p><p class="terminal-muted">Ran 4 checks</p><p><span class="prompt-dot">●</span> Unified navigation, agent controls, and project context into one continuous workspace.</p><p class="task-line"><span>●</span> Polish responsive layout and prepare the release</p><p class="code-line">└─ src/components/workspace.tsx<br />&nbsp;&nbsp;src/styles/app.css<br />&nbsp;&nbsp;tests/workspace.spec.ts</p><p class="thinking">· Percolating… <span>(42s · ↓ 2.4k tokens)</span></p><div class="terminal-input">› <i></i></div><div class="terminal-context"><span>crewdeck</span><b>⌁ launch/website</b><span>Codex</span><div><i></i><em>41%</em></div><strong>/rc</strong></div><div class="auto-mode">▶▶ auto mode on <span>(shift+tab to cycle) · ← for agents</span></div>
+              </section>
+              <section class="app-view panel-view" data-app-view="changes" hidden><header><div><small>SOURCE CONTROL</small><h3>Changes</h3></div><span class="count-pill">3 files</span></header><div class="change-summary"><b>+148</b><em>−32</em><span>Ready to review</span></div><ul class="file-list"><li><i>M</i><span>src/components/workspace.tsx</span><b>+72 −14</b></li><li><i>M</i><span>src/styles/app.css</span><b>+61 −18</b></li><li><i>A</i><span>tests/workspace.spec.ts</span><b>+15</b></li></ul><div class="diff-preview"><span>@@ -24,6 +24,9 @@</span><p>+ const workspace = useWorkspace()</p><p>+ const activeAgent = workspace.agent</p><p class="removed">- return previousLayout</p></div></section>
+              <section class="app-view panel-view terminal-view" data-app-view="terminal" hidden><header><div><small>LOCAL SHELL</small><h3>Terminal</h3></div><span class="count-pill">zsh</span></header><div class="shell-lines"><p><b>crewdeck</b> <i>main</i> $ npm run test</p><p class="terminal-muted">✓ 42 tests passed in 1.8s</p><p><b>crewdeck</b> <i>main</i> $ npm run build</p><p class="terminal-muted">✓ built renderer in 824ms<br />✓ built main process in 391ms</p><p><b>crewdeck</b> <i>main</i> $ <span class="cursor"></span></p></div></section>
+              <section class="app-view panel-view" data-app-view="checks" hidden><header><div><small>QUALITY</small><h3>Checks</h3></div><span class="success-pill">All passed</span></header><div class="check-list"><div><i>✓</i><span><b>Typecheck</b><small>No type errors</small></span><em>1.2s</em></div><div><i>✓</i><span><b>Unit tests</b><small>42 tests passed</small></span><em>1.8s</em></div><div><i>✓</i><span><b>Lint</b><small>No warnings</small></span><em>0.7s</em></div><div><i>✓</i><span><b>Build</b><small>Production bundle ready</small></span><em>1.2s</em></div></div></section>
+              <section class="app-view panel-view browser-view" data-app-view="browser" hidden><div class="browser-bar"><span>‹</span><span>›</span><span>↻</span><div>crewdeck.dev</div></div><div class="browser-page"><span class="browser-mark">◇</span><h3>Your AI work.<br /><em>All in context.</em></h3><p>One calm workspace for every agent, model, and project.</p><button>Download for Mac</button></div></section>
+              <section class="app-view panel-view" data-app-view="contacts" hidden><header><div><small>PEOPLE</small><h3>Contacts</h3></div><button class="round-add">＋</button></header><div class="contact-list"><div><i>AV</i><span><b>Alex Rivera</b><small>Product · Available</small></span><em>Message</em></div><div><i>OP</i><span><b>Owen Park</b><small>Engineering · In focus</small></span><em>Message</em></div><div><i>MS</i><span><b>Maya Singh</b><small>Design · Available</small></span><em>Message</em></div></div></section>
+              <section class="app-view panel-view" data-app-view="settings" hidden><header><div><small>CREWDECK</small><h3>Settings</h3></div></header><div class="settings-list"><div><span><b>Appearance</b><small>Follow system</small></span><em>System ›</em></div><div><span><b>Default agent</b><small>Used for new workspaces</small></span><em>Codex ›</em></div><div><span><b>Notifications</b><small>Agent activity and requests</small></span><em>On ›</em></div><div><span><b>Updates</b><small>Automatically install releases</small></span><em>On ›</em></div></div></section>
             </div>
-            <div class="app-tabs"><button class="active"><b>☀</b><span>Agent</span></button><button><b>⌘</b><span>Changes</span></button><button><b>▣</b><span>Terminal</span></button><button><b>☷</b><span>Checks</span></button><button><b>◎</b><span>Browser</span></button></div>
+            <div class="app-tabs"><button class="active" data-app-section="agent" aria-pressed="true"><b>☀</b><span>Agent</span></button><button data-app-section="changes" aria-pressed="false"><b>⌘</b><span>Changes</span></button><button data-app-section="terminal" aria-pressed="false"><b>▣</b><span>Terminal</span></button><button data-app-section="checks" aria-pressed="false"><b>☷</b><span>Checks</span></button><button data-app-section="browser" aria-pressed="false"><b>◎</b><span>Browser</span></button></div>
           </div>
-          <div class="app-dock"><button>☀</button><button>◎</button><button>♧</button><button>☼</button></div>
+          <div class="app-dock"><button class="active" data-app-section="agent" aria-label="Agent" aria-pressed="true">☀</button><button data-app-section="browser" aria-label="Browser" aria-pressed="false">◎</button><button data-app-section="contacts" aria-label="Contacts" aria-pressed="false">♧</button><button data-app-section="settings" aria-label="Settings" aria-pressed="false">☼</button></div>
         </div>
       </section>
 
